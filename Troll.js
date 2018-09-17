@@ -20,7 +20,7 @@ jay: function(message) {
 
         message.delete().catch(o_o=>{});
         message.channel.send({
-            file: "C:/Users/makyd/Desktop/thebeastbot/jgay.png"});
+            file: "C:/Users/maky_/Desktop/thebeastbot-master/jgay.png"});
     
     
     

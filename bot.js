@@ -10,8 +10,8 @@ const vChat = require("./voice")
 
 
 
-bot.on("ready",() => {
-    var member = bot.users.map(u=> `${u.username}`)
+bot.on("ready", () => {
+    var member = bot.users.map(u => `${u.username}`)
 
     var Rname = member[Math.floor(Math.random() * member.length)]
     console.log(Rname)
@@ -48,7 +48,7 @@ bot.on("ready",() => {
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);
-    bot.user.setActivity('You all while you sleep', {type: "WATCHING"});
+    bot.user.setActivity('You all while you sleep', { type: "WATCHING" });
 });
 
 bot.on('message', message => {
@@ -82,15 +82,15 @@ bot.on('message', message => {
 
 
 bot.on('message', async message => {
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
+    if (message.author.bot) return;
+    if (message.channel.type === "dm") return;
 
     let prefix = botconfig.prefix;
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    
+
 });
 
 bot.login(botconfig.token);
