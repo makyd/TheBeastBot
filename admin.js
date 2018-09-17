@@ -16,7 +16,7 @@ function nameFunction(message, bot, nUser, rUser) {
 
     // let rName = rUser[Math.floor(Math.random() * rUser.length)]
 
-    if (cmd === `${prefix}name`) {
+    if(cmd.toLowerCase() === `${prefix}name`) {
 
         // let nUser = message.guild.member(message.mentions.users.first() || message.guide.members.get(args[0]));
         // if (!nUser) return message.channel.send("Can't find user!");
@@ -45,7 +45,7 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
 
-        if (cmd === `${prefix}Kick`) {
+        if(cmd.toLowerCase() ===`${prefix}Kick`) {
 
             let kUser = message.guild.member(message.mentions.users.first() || message.guide.members.get(args[0]));
             if (!kUser) return message.channel.send("Can't find user!");
@@ -82,7 +82,7 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
 
-        if (cmd === `${prefix}report`) {
+        if(cmd.toLowerCase() === `${prefix}report`) {
 
             //!report @makyd this is reason
 
@@ -122,7 +122,7 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
 
-        if (cmd === `${prefix}Ban`) {
+        if(cmd.toLowerCase() === `${prefix}Ban`) {
 
             let bUser = message.guild.member(message.mentions.users.first() || message.guide.members.get(args[0]));
             if (!bUser) return message.channel.send("Can't find user!");

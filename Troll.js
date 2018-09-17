@@ -40,7 +40,7 @@ Drew: function(message) {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
     
-        if(cmd === `${prefix}Drew`){
+        if(cmd.toLowerCase() ===`${prefix}Drew`){
         
     
             message.delete().catch(o_o=>{});

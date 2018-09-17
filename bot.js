@@ -7,8 +7,8 @@ const infoRequest = require("./infoRequest")
 const tempmute = require("./tempmute")
 const Troll = require("./Troll")
 const vChat = require("./voice")
-
-
+const Commands = require("./Commands")
+const webtest = require("./webtest")
 
 bot.on("ready", () => {
     var member = bot.users.map(u => `${u.username}`)
@@ -62,6 +62,8 @@ bot.on('message', message => {
     Troll.jay(message);
     Troll.Drew(message);
     vChat.joinChat(message);
+    Commands.feelsBad(message);
+    // webtest.testFunction(message)
 });
 
 // bot.on('message', message => admin.kickFunction(message));
