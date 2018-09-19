@@ -17,9 +17,6 @@ bot.on("ready", () => {
     console.log(Rname)
 })
 
-
-
-
 // bot.on('ready', () => {
 //     // List servers the bot is connected to
 //     console.log("Servers:")
@@ -32,19 +29,6 @@ bot.on("ready", () => {
 //         })
 //     })
 // })
-
-
-
-
-// {
-//     "op"= 4,
-//     "d" {
-//         "guild.id"("488967175613186058")
-//         "channel.id"("488967175613186061")
-//         "self.mute"(false),
-//         "self.deaf"(false)
-//     }
-// }
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);
@@ -65,23 +49,6 @@ bot.on('message', message => {
     Commands.feelsBad(message);
     // webtest.testFunction(message)
 });
-
-// bot.on('message', message => admin.kickFunction(message));
-// bot.on('message', message => admin.reportFunction(message));
-// bot.on('message', message => admin.banFunction(message));
-// bot.on('message', message => admin.changeName(message));
-// bot.on('message', message => games.coinFlip(message));
-// bot.on('message', message => infoRequest.serverInfo(message));
-// bot.on('message', message => infoRequest.botInfo(message, bot));
-// bot.on('message', message => Troll.jay(message));
-// bot.on('message', message => Troll.Drew(message));
-
-// bot.on('message', async message => vChat.joinChat(message));
-
-
-
-
-
 
 bot.on('message', async message => {
     if (message.author.bot) return;

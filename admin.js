@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const ms = require("ms");
 const fs = require("fs")
 
-async function nameFunction(message, bot, nUser, rUser) {
+function nameFunction(message, bot, nUser, rUser) {
 
 
     let prefix = botconfig.prefix;
@@ -11,25 +11,13 @@ async function nameFunction(message, bot, nUser, rUser) {
     let cmd = messageArray[0];
     let args = messageArray.slice(1);
 
-    // let rUser = bot.users.map(u => `${u.username}`)
-    //let member = message.guild.members.map(u => `${u.username}`)
+    if (cmd.toLowerCase() === `${prefix}name`) {
 
-    // let rName = rUser[Math.floor(Math.random() * rUser.length)]
-
-    if(cmd.toLowerCase() === `${prefix}name`) {
-
-        // let nUser = message.guild.member(message.mentions.users.first() || message.guide.members.get(args[0]));
-        // if (!nUser) return message.channel.send("Can't find user!");
-        // let nReason = args.join(" ").slice(22);
-
-        // if (!message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("Fuck off you Pleb");
-        // if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
         let rName = rUser[Math.floor(Math.random() * rUser.length)]
-     
 
         message.delete().catch(o_o => { });
         message.guild.member(nUser).setNickname(rName);
-        
+
 
         return;
     }
@@ -49,7 +37,7 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
 
-        if(cmd.toLowerCase() ===`${prefix}Kick`) {
+        if (cmd.toLowerCase() === `${prefix}Kick`) {
 
             let kUser = message.guild.member(message.mentions.users.first() || message.guide.members.get(args[0]));
             if (!kUser) return message.channel.send("Can't find user!");
@@ -86,7 +74,7 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
 
-        if(cmd.toLowerCase() === `${prefix}report`) {
+        if (cmd.toLowerCase() === `${prefix}report`) {
 
             //!report @makyd this is reason
 
@@ -126,7 +114,7 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
 
-        if(cmd.toLowerCase() === `${prefix}Ban`) {
+        if (cmd.toLowerCase() === `${prefix}Ban`) {
 
             let bUser = message.guild.member(message.mentions.users.first() || message.guide.members.get(args[0]));
             if (!bUser) return message.channel.send("Can't find user!");
@@ -156,29 +144,28 @@ module.exports = {
 
     changeName: async function (message, bot) {
 
-                let prefix = botconfig.prefix;
+        let prefix = botconfig.prefix;
         let messageArray = message.content.split(" ");
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
         if (cmd === `${prefix}name`) {
-           
-            //oName = nUser.displayName
-     
-        let nUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-        if (!nUser) return message.channel.send("Can't find user!");
-        oName = nUser.displayName
-        let rUser = bot.users.map(u => `${u.username}`)
-       
 
-        if (!message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("Fuck off you Pleb");
-        if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
 
-        // setInterval(function(){nameFunction(message)}, 2000)  also works
-        
-        var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 3000)
-        setTimeout(function(){clearInterval(startF)},30000)
-        setTimeout(async function(){ogname(message,nUser, oName)},36000)
-    }
+            let nUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+            if (!nUser) return message.channel.send("Can't find user!");
+            oName = nUser.displayName
+            let rUser = bot.users.map(u => `${u.username}`)
+
+
+            if (!message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("Fuck off you Pleb");
+            if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
+
+            // setInterval(function(){nameFunction(message)}, 2000)  also works
+
+            var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 3000)
+            setTimeout(function () { clearInterval(startF) }, 30000)
+            setTimeout(function () { ogname(message, nUser, oName) }, 36000)
+        }
     }
 
 }

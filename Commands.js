@@ -5,28 +5,29 @@ const fs = require("fs")
 
 module.exports = {
 
-// !fbm
-feelsBad: function(message) {
-    if(message.author.bot) return;
-    if(message.channel.type === "dm") return;
+    // !fbm
+    feelsBad: function (message) {
+        if (message.author.bot) return;
+        if (message.channel.type === "dm") return;
 
-    let prefix = botconfig.prefix;
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0];
-    let args = messageArray.slice(1);
+        let prefix = botconfig.prefix;
+        let messageArray = message.content.split(" ");
+        let cmd = messageArray[0];
+        let args = messageArray.slice(1);
 
-    if(cmd.toLowerCase() === `${prefix}fbm`){
-    
+        if (cmd.toLowerCase() === `${prefix}fbm`) {
 
-        message.delete().catch(o_o=>{});
-        message.channel.send({
-            file: "C:/Users/maky_/Desktop/thebeastbot-master/phill.jpg"});
-    
-    
-    
-        return;
-    
-    
-       }
+
+            message.delete().catch(o_o => { });
+            message.channel.send({
+                file: "C:/Users/maky_/Desktop/thebeastbot-master/phill.jpg"
+            });
+
+
+
+            return;
+
+
+        }
     }
 }
