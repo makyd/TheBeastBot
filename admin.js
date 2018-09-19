@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const ms = require("ms");
 const fs = require("fs")
 
-function nameFunction(message, bot, nUser, rUser) {
+async function nameFunction(message, bot, nUser, rUser) {
 
 
     let prefix = botconfig.prefix;
@@ -34,7 +34,7 @@ function nameFunction(message, bot, nUser, rUser) {
         return;
     }
 }
-function ogname(message, nUser, oName) {
+async function ogname(message, nUser, oName) {
     message.guild.member(nUser).setNickname(oName);
 }
 
@@ -154,19 +154,19 @@ module.exports = {
         }
     },
 
-    changeName: function (message, bot) {
+    changeName: async function (message, bot) {
 
                 let prefix = botconfig.prefix;
         let messageArray = message.content.split(" ");
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
         if (cmd === `${prefix}name`) {
-
-            let oName = message.users.map(u => `${u.username}`)
-           // oName = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+           
+            //oName = nUser.displayName
      
         let nUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!nUser) return message.channel.send("Can't find user!");
+        oName = nUser.displayName
         let rUser = bot.users.map(u => `${u.username}`)
        
 
@@ -175,9 +175,9 @@ module.exports = {
 
         // setInterval(function(){nameFunction(message)}, 2000)  also works
         
-        var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 1000)
-        setTimeout(function(){clearInterval(startF)},5000)
-        setTimeout(function(){ogname(oName,message,nUser)},7000)
+        var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 3000)
+        setTimeout(function(){clearInterval(startF)},30000)
+        setTimeout(async function(){ogname(message,nUser, oName)},36000)
     }
     }
 
