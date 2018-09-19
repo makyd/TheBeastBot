@@ -34,6 +34,10 @@ function nameFunction(message, bot, nUser, rUser) {
         return;
     }
 }
+function ogname(message, nUser, oName) {
+    message.guild.member(nUser).setNickname(oName);
+}
+
 
 module.exports = {
     kickFunction: function (message) {
@@ -157,7 +161,9 @@ module.exports = {
         let cmd = messageArray[0];
         let args = messageArray.slice(1);
         if (cmd === `${prefix}name`) {
-        
+
+            let oName = message.users.map(u => `${u.username}`)
+           // oName = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
      
         let nUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if (!nUser) return message.channel.send("Can't find user!");
@@ -168,7 +174,11 @@ module.exports = {
         if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
 
         // setInterval(function(){nameFunction(message)}, 2000)  also works
-        setInterval(() => nameFunction(message, bot, nUser, rUser), 2000)
+        
+        var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 1000)
+        setTimeout(function(){clearInterval(startF)},5000)
+        setTimeout(function(){ogname(oName,message,nUser)},7000)
     }
     }
+
 }
