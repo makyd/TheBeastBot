@@ -1,7 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const ms = require("ms");
-const fs = require("fs")
+const fs = require("fs");
 
 function nameFunction(message, bot, nUser, rUser) {
 
@@ -25,8 +25,7 @@ function nameFunction(message, bot, nUser, rUser) {
 async function ogname(message, nUser, oName) {
     message.guild.member(nUser).setNickname(oName);
 }
-
-
+//#region
 module.exports = {
     kickFunction: function (message) {
         if (message.author.bot) return;
@@ -49,7 +48,7 @@ module.exports = {
             let kickEmbed = new Discord.RichEmbed()
                 .setDescription("~Kick~")
                 .setColor("#0461f7")
-                .addField("kicked User", `${kUser} with ID ${kUser.ID}`)
+                .addField("kicked by nigger:", `${kUser} with ID ${kUser.ID}`)
                 .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
                 .addField("kicked In", message.channel)
                 .addField("Time", message.createdTimestamp)
@@ -151,21 +150,44 @@ module.exports = {
         if (cmd === `${prefix}name`) {
 
 
-            let nUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-            if (!nUser) return message.channel.send("Can't find user!");
-            oName = nUser.displayName
-            let rUser = bot.users.map(u => `${u.username}`)
+            message.mentions.users.forEach(user => {
+                let nUser = message.guild.member(user);
+                    
+                if (!nUser) return message.channel.send("Can't find user!");
+                let oName = nUser.displayName
+                let rUser = bot.users.map(u => `${u.username}`)
 
 
-            if (!message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("Fuck off you Pleb");
-            if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
+                // if (!message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("Fuck off you Pleb");
+                // if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
 
-            // setInterval(function(){nameFunction(message)}, 2000)  also works
+                // setInterval(function(){nameFunction(message)}, 2000)  also works
 
-            var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 3000)
-            setTimeout(function () { clearInterval(startF) }, 30000)
-            setTimeout(function () { ogname(message, nUser, oName) }, 36000)
+                var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 1000)
+                setTimeout(function () { 
+                    clearInterval(startF);
+                    ogname(message, nUser, oName);
+                }, 5000)
+                // setTimeout(function () { ogname(message, nUser, oName) }, 36000)
+
+            });
+
+            // let nUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+            // if (!nUser) return message.channel.send("Can't find user!");
+            // let oName = nUser.displayName
+            // let rUser = bot.users.map(u => `${u.username}`)
+
+
+            // if (!message.member.hasPermission("MANAGE_NICKNAMES")) return message.channel.send("Fuck off you Pleb");
+            // if (nUser.hasPermission("ADMINISTRATOR")) return message.channel.send("Nope!");
+
+            // // setInterval(function(){nameFunction(message)}, 2000)  also works
+
+            // var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 1000)
+            // setTimeout(function () { clearInterval(startF) }, 5000)
+            // setTimeout(function () { ogname(message, nUser, oName) }, 7000)
         }
     }
 
 }
+//#endregion

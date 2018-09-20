@@ -16,7 +16,7 @@ bot.on("ready", () => {
     var Rname = member[Math.floor(Math.random() * member.length)]
     console.log(Rname)
 })
-
+//#region rando
 // bot.on('ready', () => {
 //     // List servers the bot is connected to
 //     console.log("Servers:")
@@ -29,6 +29,7 @@ bot.on("ready", () => {
 //         })
 //     })
 // })
+//#endregion
 
 bot.on("ready", async () => {
     console.log(`${bot.user.username} is online!`);

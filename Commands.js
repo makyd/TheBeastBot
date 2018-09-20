@@ -20,7 +20,7 @@ module.exports = {
 
             message.delete().catch(o_o => { });
             message.channel.send({
-                file: "C:/Users/maky_/Desktop/thebeastbot-master/phill.jpg"
+                file: "../phill.jpg"
             });
 
 
