@@ -163,11 +163,11 @@ module.exports = {
 
                 // setInterval(function(){nameFunction(message)}, 2000)  also works
 
-                var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 1000)
+                var startF = setInterval(() => nameFunction(message, bot, nUser, rUser), 2000)
                 setTimeout(function () { 
                     clearInterval(startF);
                     ogname(message, nUser, oName);
-                }, 5000)
+                }, 30000)
                 // setTimeout(function () { ogname(message, nUser, oName) }, 36000)
 
             });

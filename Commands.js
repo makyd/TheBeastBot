@@ -18,9 +18,9 @@ module.exports = {
         if (cmd.toLowerCase() === `${prefix}fbm`) {
 
 
-            message.delete().catch(o_o => { });
+            //message.delete().catch(o_o => { });
             message.channel.send({
-                file: "../phill.jpg"
+                file: "C:/Users/maky_/Desktop/thebeastbot-master/phill.jpg"
             });
 
 

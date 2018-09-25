@@ -46,6 +46,12 @@ bot.on('message', message => {
     infoRequest.botInfo(message, bot);
     Troll.jay(message);
     Troll.Drew(message);
+    Troll.Sam(message);
+    Troll.Kirk(message);
+    Troll.Naf(message);
+    Troll.May(message);
+    Troll.Tubz(message);
+    Troll.Maky(message);
     vChat.joinChat(message);
     Commands.feelsBad(message);
     // webtest.testFunction(message)
